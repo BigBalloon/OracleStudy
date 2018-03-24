@@ -1,0 +1,34 @@
+启动sql*plus连接和断开数据库
+sqlplus sys/ccec1234 as sysdba #使用sys用户登录sqlplus
+sqlplus scoot/ccec1234		   #使用scott用户登录sqlplus
+
+切换用户,例如某个时刻,Oracle中的用户是scott,要切换到sys用户
+conn sys/ccec1234 as sysdba
+
+查看表结构
+desc [tablename]
+
+执行sql脚本
+[@ | start]d:\sql\test.sql #执行D盘下的sql文件夹中名为test的sql脚本
+
+保存缓冲区的内容到文件,因为sql*plus语句执行后都会被保存在一个称为SQL BUFFER的内存区域中,并且只能保存一条最近执行的SQL语句
+save d:\sql\test2.sql [create | replace | append] #把缓冲区的内容保存到D盘sql文件夹中名为test2的文件中
+
+读取脚本文件到缓冲区中
+get d:\sql\test.sql [list | nolist] #list列出缓冲区的语句,nolist不列出缓冲区的语句
+
+编辑缓冲区的内容
+edit [filename]
+
+执行缓冲区中的内容
+/
+
+复制输出结果到文件
+spool d:\sql\test3.txt [create | replace | append] #create没有该文件就创建,replace,有该文件就覆盖,append,往该文件后追加内容
+select * from emp
+spool off;
+
+变量
+
+
+
