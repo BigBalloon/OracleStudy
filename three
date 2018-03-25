@@ -28,7 +28,28 @@ spool d:\sql\test3.txt [create | replace | append] #create没有该文件就创�
 select * from emp
 spool off;
 
-变量
+临时变量
+select deptno,dname from dept where deptno=@v_deptno #临时变量的作用范围只在本条语句
+
+定义变量
+define v_char="SMITH"(CHAR) #定义CHAR类型的变量
+select deptno,dname from dept where deptno=@@v_deptno #也是定义一个变量
+
+查看已定义的变量
+define
+
+删除变量
+undefine v_deptno #undefine [变量名]
+
+格式化查询结果
+column empno heading "员工编号"
+column empno format 9999#指定显示四位数
+select empno from emp;
+
+
+
+
+
 
 
 
