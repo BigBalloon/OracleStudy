@@ -1,0 +1,17 @@
+创建表空间
+create tablespace my_first_tablespace
+datafile my_first_datafile 10M
+autoextend on
+next 5M
+maxsize 50M
+#command 
+create tablespace [tablespace_name]
+datafile | tempfile file_name size K | M reuse #datafile是永久文件,tempfile表示临时文件,
+# size 10M表示这个文件的大小是10M,reuse表示如果这个文件存在的话,则清除这个文件,并重新创建.
+# autoextend on,表示打开自动扩展
+# next number K | M ,表示自动扩展的大小
+# maxsize number K | M,表示最大扩展是多大,unlimited表示无限大
+
+使用表空间
+
+管理表空间
